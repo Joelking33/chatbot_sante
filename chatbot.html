@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Chat Bot</title>
+</head>
+<body>
+    <!-- bouton hamburger -->
+<div class="hamburger" onclick="toggleMenu()">
+<div></div>
+<div></div>
+<div></div>
+</div>
+
+<!-- menu -->
+<div id="menu" class="menu">
+
+<h2>Chatbot Santé</h2>
+
+<a href="#"><i class="fa-solid fa-house"></i> Accueil</a>
+
+<a href="#"><i class="fa-solid fa-comment-medical"></i> Chat médical</a>
+
+<a href="#"><i class="fa-solid fa-notes-medical"></i> Historique</a>
+
+<a href="#"><i class="fa-solid fa-language"></i> Langues</a>
+
+<a href="#"><i class="fa-solid fa-gear"></i> Paramètres</a>
+
+<a href="#"><i class="fa-solid fa-circle-info"></i> Aide</a>
+
+<a href="#"><i class="fa-solid fa-right-from-bracket"></i> Déconnexion</a>
+
+</div>
+
+    <h3 class="name">Pacome</h3>
+    <div class="image">
+        <img src="AI.jpg" alt="Chat Bot Image">
+    </div>
+    <p>Bonjour je suis Pacome comment je peux vous aider ?</p>
+    <div class="mini-card">
+        <button>Analyser des images</button>
+        <button>Elaborer un plan</button>
+    </div>
+    <div id="chat-container">
+        <div class="chat-box">
+            <input type="text" class="user-input" placeholder="Type your message here...">
+            <button class="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>
