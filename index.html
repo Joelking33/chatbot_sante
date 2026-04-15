@@ -1,57 +1,80 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="chatbot.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>Chat Bot</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanovia</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="/img/Sanovia.icon" type="image/x-icon">
+<link rel="icon" type="image/jpeg" sizes="32x32" href="/img/Sanovia.jpeg">
+<link rel="apple-touch-icon" href="/img/Sanovia.jpeg">
+<script src="https://kit.fontawesome.com/e930c4c006.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- bouton hamburger -->
-<div class="hamburger" onclick="toggleMenu()">
-<div></div>
-<div></div>
-<div></div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="hamburger" id="hamburger" onclick="toggleSidebar()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="logo">
+      <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,rgba(0,198,167,0.3),rgba(0,168,232,0.3));border:1px solid rgba(0,198,167,0.4);display:flex;align-items:center;justify-content:center;font-size:18px;"><img src="img/Sanovia.jpeg" alt="Sanovia" style="width:100%;height:100%;object-fit:cover;"></div>
+      <span class="logo-name">Sanovia</span>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="lang-selector">
+      <span style="font-size:13px;font-weight:600;">FR</span>
+      <select>
+        <option value="fr">FR</option>
+        <option value="bété">BE</option>
+        <option value="baoulé">BA</option>
+        <option value="dioula">DI</option>
+      </select>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()" title="Changer le thème"><i class="fa-solid fa-sun" style="color: rgb(42, 91, 177);"></i></button>
+    <button class="disconnect-btn" onclick="alert('Déconnexion...')">Se déconnecter</button>
+    <div class="avatar">YJ</div>
+  </div>
 </div>
 
-<!-- menu -->
-<div id="menu" class="menu">
+<!-- MAIN -->
+<div class="main">
 
-<h2>Chatbot Santé</h2>
+  <!-- SIDEBAR OVERLAY -->
+  <div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
 
-<a href="#"><i class="fa-solid fa-house"></i> Accueil</a>
-
-<a href="#"><i class="fa-solid fa-comment-medical"></i> Chat médical</a>
-
-<a href="#"><i class="fa-solid fa-notes-medical"></i> Historique</a>
-
-<a href="#"><i class="fa-solid fa-language"></i> Langues</a>
-
-<a href="#"><i class="fa-solid fa-gear"></i> Paramètres</a>
-
-<a href="#"><i class="fa-solid fa-circle-info"></i> Aide</a>
-
-<a href="#"><i class="fa-solid fa-right-from-bracket"></i> Déconnexion</a>
-
-</div>
-
-    <h3 class="name">Pacome</h3>
-    <div class="image">
-        <img src="AI.jpg" alt="Chat Bot Image">
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <button class="new-conv-btn" onclick="newConversation()">
+      <span>+</span> Nouvelle conversation
+    </button>
+    <div class="conversations-list" id="conv-list">
+      <!-- rempli dynamiquement -->
     </div>
-    <p>Bonjour je suis Pacome comment je peux vous aider ?</p>
-    <div class="mini-card">
-        <button>Analyser des images</button>
-        <button>Elaborer un plan</button>
+  </div>
+
+  <!-- CHAT -->
+  <div class="chat-area">
+    <div class="messages" id="messages">
+      <!-- Welcome ou messages -->
     </div>
-    <div id="chat-container">
-        <div class="chat-box">
-            <input type="text" class="user-input" placeholder="Type your message here...">
-            <button class="send-btn">Send</button>
+
+    <!-- INPUT -->
+    <div class="input-area">
+      <div class="input-row">
+        <button class="attach-btn" title="Joindre un fichier"><i class="fa-solid fa-file" style="color: rgb(42, 91, 177);"></i></button>
+        <textarea id="message-input" placeholder="Tapez votre message..." rows="1"
+          onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <button class="mic-btn" title="Message vocal"><i class="fa-solid fa-microphone" style="color: rgb(42, 91, 177);"></i></button>
+          <button class="send-btn" onclick="sendMessage()" title="Envoyer">➤</button>
         </div>
+      </div>
     </div>
-
-    <script src="chatbot.js"></script>
+  </div>
+</div>
+<script src="scrypt.js"></script>
 </body>
 </html>
